@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course Selection</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="includes/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Course Selection</h1>
+    </header>
+    <p id='intro'>Please type all of the courses you have taken so far. All of the courses that require your courses as prerequisites appear</p>
+
+  <!-- The form for entering the courses taken -->
+  <form id="form">
+    <label for="courses_taken">Courses Taken</label>
+    <input type="text" id="courses_taken" name="courses_taken" placeholder="Enter the courses you have taken">
+    <button id="get_course" type="submit">Good..Now Click</button>
+  </form>
+  <!-- The dropdown menu for selecting a course -->
+  <select id="course-select">
+    <option value="">Select a course</option>
+  </select>
+
+  <!-- The container for displaying course details -->
+  <div id="course-details"></div>
+
+  <!-- The container for displaying course options -->
+  <div id="courses"></div>
+
+  <!-- The JavaScript code for handling user events and interacting with the server -->
+  <script>
+    $(document).ready(function () {
+      // Hide the course selection dropdown menu initially
+      $("#course-select").hide();
+      
+      // Handle the event when the user submits the form
+      $("#get_course").click(function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+        
+        // Clear the previous options in the dropdown menu and show it
+        $("#course-select").empty();
+        $("#course-select").fadeIn(1000);
+        
+        // Get the courses taken entered by the user
+        var post = $("#courses_taken").val();
+        
+        // Make an AJAX request to the server to retrieve the course options based on the courses taken
+        $.ajax({
+          type: "POST",
+          url: "includes/dbh_get_courses.php",
+          data: {course: post},
+          dataType: 'json',
+          success: function (response) {
+            var data = response;
+            try {
+              // Populate the dropdown with options
+              var select = document.getElementById("course-select");
+              for (var courseCode in data) {
+                var option = document.createElement("option");
+                option.text = courseCode + ": " + response[courseCode].course_name;
+                option.value = courseCode;
+                select.add(option);
+              }
+              
+              // Add an event listener to display the course details when a course is selected
+              select.addEventListener("change", function() {
+                var courseCode = this.value;
+                var courseDetails = response[courseCode];
+                var detailsDiv = document.getElementById("course-details");
+                detailsDiv.innerHTML = '<div class="course-details-container"><h3>' + courseCode + ": " + courseDetails.course_name + "</h3><p><strong>Program area:</strong> " + courseDetails.program_area + "</p><p><strong>Distribution requirement:</strong> " + courseDetails.distribution_require
+                });
+              } catch (e) {
+                console.error("Failed to parse JSON response:", response);
+              }
+          },
+              error: function() {
+                console.log("ERROR: Could not fetch courses 2");
+              }
+            });
+          });
+        });
+    </script>
+  </body>
+</html>

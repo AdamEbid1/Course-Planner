@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #D3B1C2;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #211522;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+h1 {
+  margin: 0;
+  font-size: 36px;
+  text-shadow: 2px 2px 4px #000000;
+}
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top:40px;
+  text-align: center;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #613659;
+}
+input[type="text"] {
+  padding: 10px;
+  width: 96%;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.error {
+  color: #f44336;
+  margin-top: 10px;
+  font-weight: bold;
+}
+select {
+  appearance: none;
+  background-color: #fff;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #444;
+  width: 400px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px !important;
+  margin-top: 100px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden !important;
+}
+#get_course {
+  color: #613659;
+  width: 50%;
+  font-weight: bold
+}
+#get_course:hover {
+  border-color: #C197D2;
+}
+select option {
+  background-color: #fff;
+  color: #444;
+  font-size: 16px;
+  font-family: sans-serif;
+  padding: 1px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+select:hover {
+  border-color: #C197D2;
+}
+
+select:focus {
+  outline: none;
+  border-color: #C197D2;
+  box-shadow: 0 0 5px #C197D2, 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.course-details-container {
+  text-align: center;
+  margin: 0 auto;
+  background: pink;
+  margin-top: 20px;
+  background-size: 10PX;
+  PADDING: 10px;
+  width: 50%;
+  box-shadow: 0 0 10px #211522, 0 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px
+}
+#intro {
+  text-align: center;
+  margin: 0 auto;
+  color: black;
+  /* text-shadow: 2px 2px 4px #000000; */
+  font-size: 16px;
+  font-family: 'Bubblegum Sans', cursive;
+  width: 60%;
+  margin-top: 20px;
+}

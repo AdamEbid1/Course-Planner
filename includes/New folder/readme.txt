@@ -1,0 +1,1 @@
+The courses_info.sql file consists of all the courses that are offered at the university of toronto Mississauga, the database is stored in a MYSQL database and is managed using phpMyAdmin
