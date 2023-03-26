@@ -71,7 +71,9 @@
                 var courseCode = this.value;
                 var courseDetails = response[courseCode];
                 var detailsDiv = document.getElementById("course-details");
-                detailsDiv.innerHTML = '<div class="course-details-container"><h3>' + courseCode + ": " + courseDetails.course_name + "</h3><p><strong>Program area:</strong> " + courseDetails.program_area + "</p><p><strong>Distribution requirement:</strong> " + courseDetails.distribution_require
+                console.log(courseDetails);
+                detailsDiv.innerHTML = '<div class="course-details-container"><h3>' + courseCode + ": " + courseDetails.course_name + "</h3><p><strong>Program area:</strong> " + courseDetails.program_area + "</p><p><strong>Distribution requirement:</strong> " + courseDetails.distribution_requirement +
+                  "</h3><p><strong>Prerequisites:</strong> " + courseDetails.prerequisites + "</h3><p><strong>Exclusions:</strong> " + courseDetails.exclusions
                 });
               } catch (e) {
                 console.error("Failed to parse JSON response:", response);
