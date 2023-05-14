@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Osamaebid123",
+  password="root",
   database="uni_new"
 )
 
